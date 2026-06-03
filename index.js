@@ -22,6 +22,8 @@ server.use('/api/slot', slotRoute)
 server.use('/api/aggregate', aggregateRoute)
 server.use('/api/auth', authRoute)
 
-server.listen(2705, () => {
-    console.log('Server started listening on port 2705')
+const PORT = process.env.PORT || 2705
+
+server.listen(PORT, () => {
+    console.log(`Server started listening on port ${PORT}`)
 })
