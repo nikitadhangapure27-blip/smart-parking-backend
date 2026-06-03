@@ -1,0 +1,589 @@
+/* ============================================================
+   SmartPark — Reduced Font Sizes & New Font Family
+   All font sizes decreased, font-family changed to 'Inter' / 'Fira Code'
+   Preserves unique color scheme and layout from previous version
+   ============================================================ */
+
+/* ── Google Fonts (Inter & Fira Code) ─────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Fira+Code:wght@400;500&display=swap');
+
+/* ── Reset & Base Layout ─────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: #0b0b0f;
+  color: #eef2ff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;          /* decreased from 14px */
+  font-weight: 400;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  min-height: 100vh;
+}
+
+/* ── Sidebar & Navigation – Unique colors, smaller fonts ─── */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 230px;
+  height: 100vh;
+  background: #0f1117;
+  border-right: 1px solid #2a2f3f;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  font-size: 10px;          /* decreased from 11px */
+  color: #9ca3c7;
+}
+
+.sidebar-logo {
+  padding: 20px 20px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;          /* decreased from 18px */
+  font-weight: 800;
+  color: #f0b34b;
+  border-bottom: 1px solid #2a2f3f;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #090b10;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  background: #0d0f15;
+  font-size: 11px;          /* decreased from 12px */
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: #a5b4d0;
+  font-size: 11px;          /* decreased from 12px */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+}
+
+.nav-item:hover {
+  background: #1e1f2c;
+  color: #f4d58c;
+  border-color: #3e3f55;
+}
+
+.nav-item.active {
+  background: #2a1e3c;
+  color: #c084fc;
+  border-color: #a855f7;
+  font-size: 11px;          /* decreased from 13px */
+  font-weight: 700;
+}
+
+.nav-icon {
+  font-size: 14px;          /* decreased from 16px */
+  color: #67e0a3;
+}
+
+.sidebar-footer {
+  padding: 12px;
+  border-top: 1px solid #2a2f3f;
+  font-size: 8px;           /* decreased from 9px */
+  color: #7e8aa2;
+  text-align: center;
+  background: #0a0c12;
+}
+
+/* ── Main Content Area ───────────────────────────────────── */
+.main-content {
+  margin-left: 230px;
+  padding: 28px 32px;
+  min-height: 100vh;
+  background: #080a0f;
+  font-size: 11px;          /* decreased from 13px */
+  color: #e2e8f0;
+}
+
+/* ── Cards ───────────────────────────────────────────────── */
+.card {
+  background: #171b26;
+  border: 1px solid #2d3348;
+  border-radius: 16px;
+  padding: 18px;
+  font-size: 12px;          /* decreased from 14px */
+  color: #f0e6d0;
+  transition: all 0.28s ease;
+  position: relative;
+}
+
+.card:hover {
+  border-color: #6c63ff;
+  box-shadow: 0 8px 32px rgba(108, 99, 255, 0.12);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ff9a5a, #6c63ff, transparent);
+}
+
+/* ── Buttons – each variant smaller font ─────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;          /* decreased from 12px */
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.btn-primary {
+  background: #7c3aed;
+  color: #fff0d4;
+  font-size: 11px;          /* decreased from 13px */
+  box-shadow: 0 0 0 0 #a78bfa;
+}
+
+.btn-primary:hover {
+  background: #8b5cf6;
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: #2d3748;
+  color: #bfd9ff;
+  border-color: #4a5568;
+  font-size: 10px;          /* decreased from 11px */
+}
+
+.btn-secondary:hover {
+  background: #4a5568;
+  color: #ffffff;
+}
+
+.btn-danger {
+  background: #aa2e4e;
+  color: #ffe3e8;
+  border-color: #be5a78;
+  font-size: 11px;          /* decreased from 12.5px, rounded */
+}
+
+.btn-danger:hover {
+  background: #c53a5f;
+  box-shadow: 0 0 12px rgba(197, 58, 95, 0.3);
+}
+
+.btn-sm {
+  padding: 4px 10px;
+  font-size: 9px;           /* decreased from 10px */
+  background: #334155;
+  color: #cbd5e6;
+}
+
+/* ── Badges – each variant unique and smaller ────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 8px;           /* decreased from 9px */
+  font-weight: 700;
+  text-transform: uppercase;
+  background: #2a2f3f;
+  color: #b9c3db;
+}
+
+.badge-active {
+  background: #1f5f4c;
+  color: #bef2d5;
+  font-size: 7px;           /* decreased from 8px */
+  border: 1px solid #2d9c78;
+}
+
+.badge-occ {
+  background: #732c3c;
+  color: #ffb7c5;
+  font-size: 9px;           /* decreased from 10px */
+  border: 1px solid #d45c7a;
+}
+
+.badge-warn {
+  background: #7a5a1f;
+  color: #ffea9e;
+  font-size: 10px;          /* decreased from 11px */
+  border: 1px solid #f0b341;
+}
+
+/* ── Form Controls ───────────────────────────────────────── */
+.form-group label {
+  font-size: 9px;           /* decreased from 10px */
+  font-weight: 700;
+  color: #aac8ff;
+  text-transform: uppercase;
+}
+
+.form-control {
+  background: #1e1f29;
+  border: 1px solid #353b4d;
+  border-radius: 10px;
+  color: #eef2ff;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;          /* decreased from 12px */
+  padding: 8px 12px;
+}
+
+.form-control:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+select.form-control {
+  font-size: 11px;          /* decreased from 13px */
+  background-color: #232433;
+  color: #ffdd99;
+}
+
+/* ── Alerts – smaller distinct sizes ─────────────────────── */
+.alert {
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.alert-success {
+  background: #1f4037;
+  border-color: #46b78b;
+  color: #bcf0d0;
+  font-size: 11px;          /* decreased from 12.5px */
+}
+
+.alert-error {
+  background: #3b1e2a;
+  border-color: #e25c78;
+  color: #ffc2cf;
+  font-size: 11px;          /* decreased from 13px */
+}
+
+.alert-info {
+  background: #1c314e;
+  border-color: #6c9bd9;
+  color: #cde5ff;
+  font-size: 10px;          /* decreased from 11.5px */
+}
+
+/* ── Tables ──────────────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;          /* decreased from 13px */
+}
+
+th {
+  text-align: left;
+  padding: 8px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;          /* decreased from 11px */
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fdba74;
+  background: #0e111b;
+  border-bottom: 1px solid #2e3440;
+}
+
+td {
+  padding: 10px 14px;
+  color: #cad2e6;
+  font-size: 11px;          /* decreased from 13px */
+  border-bottom: 1px solid #252b3b;
+}
+
+tbody tr:hover {
+  background: #1a1e2c;
+}
+
+/* ── Modal ───────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #181e2a;
+  border: 1px solid #4a4e6b;
+  border-radius: 22px;
+  padding: 24px;
+  max-width: 480px;
+  width: 100%;
+  font-size: 12px;          /* decreased from 14px */
+  color: #e5e9f4;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #323a4b;
+}
+
+.modal-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;          /* decreased from 18px */
+  font-weight: 800;
+  color: #facc15;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #a5adc6;
+  font-size: 18px;          /* decreased from 22px (icon size) */
+  cursor: pointer;
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+
+.modal-close:hover {
+  background: #2f3547;
+  color: #ffffff;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #323a4b;
+}
+
+/* ── Empty State ─────────────────────────────────────────── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 48px 20px;
+  font-size: 12px;          /* decreased from 14px */
+  color: #9aabcc;
+  text-align: center;
+}
+
+.empty-state .icon {
+  font-size: 38px;          /* decreased from 44px */
+  color: #f97316;
+}
+
+/* ── Spinner ─────────────────────────────────────────────── */
+.spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #3e4b6b;
+  border-top-color: #f97316;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* ── Progress Bar ────────────────────────────────────────── */
+.progress-track {
+  height: 5px;
+  background: #262c3a;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #facc15, #ff8c42);
+  transition: width 0.6s ease;
+}
+
+/* ── Revenue Bar (custom) ────────────────────────────────── */
+.rev-bar {
+  border-radius: 4px 4px 0 0;
+  min-height: 3px;
+  background: linear-gradient(to top, #ff6b6b, #ffb347);
+}
+
+/* ── Section Headers ─────────────────────────────────────── */
+.section-header h1 {
+  font-size: 22px;          /* decreased from 26px */
+  font-family: 'Inter', sans-serif;
+  color: #e2c28b;
+  letter-spacing: -0.02em;
+}
+
+.section-header p {
+  color: #8d9ac2;
+  font-size: 11px;          /* decreased from 13px */
+  margin-top: 2px;
+}
+
+/* ── Filter Strip ────────────────────────────────────────── */
+.filter-strip {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 11px;          /* decreased from 12px */
+  color: #b7c9e2;
+}
+
+.filter-divider {
+  width: 1px;
+  height: 24px;
+  background: #3e455b;
+}
+
+/* ── Payment Method Card ─────────────────────────────────── */
+.method-card {
+  background: #1e2438;
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #3b415c;
+  font-size: 11px;          /* decreased from 12px */
+  color: #c0f0e8;
+  transition: border 0.15s ease;
+}
+
+.method-card:hover {
+  border-color: #ffaa44;
+  background: #282f48;
+}
+
+/* ── Stat Glow Helpers (distinct colors, smaller text) ───── */
+.stat-glow-a {
+  box-shadow: 0 0 30px rgba(255, 110, 64, 0.2);
+  background: #252b3a;
+  font-size: 12px;          /* decreased from 14px */
+  color: #ffb57c;
+}
+
+.stat-glow-b {
+  box-shadow: 0 0 30px rgba(0, 200, 200, 0.2);
+  background: #1f313c;
+  font-size: 12px;          /* decreased from 14px */
+  color: #7ee0dd;
+}
+
+.stat-glow-c {
+  box-shadow: 0 0 30px rgba(220, 180, 80, 0.2);
+  background: #2f2a1f;
+  font-size: 12px;          /* decreased from 14px */
+  color: #f5de9c;
+}
+
+/* ── Utility Classes – new font family & smaller sizes ───── */
+.text-mono {
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 11px;          /* decreased from 12px */
+  color: #b0c4de;
+}
+.text-muted {
+  color: #96a2c2;
+  font-size: 10px;          /* decreased from 11px */
+}
+.text-accent {
+  color: #7df9b3;
+  font-size: 11px;          /* decreased from 12px */
+}
+.text-accent2 {
+  color: #74c7ff;
+  font-size: 11px;
+}
+.text-danger {
+  color: #ff8a9f;
+  font-size: 11px;
+}
+.text-warn {
+  color: #ffcd7e;
+  font-size: 11px;
+}
+.font-display {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+
+/* ── Responsive Overrides (layout only, fonts scale) ─────── */
+@media (max-width: 900px) {
+  .app-layout { grid-template-columns: 64px 1fr; }
+  .sidebar { width: 64px; }
+  .sidebar-logo .logo-text,
+  .nav-item .nav-label,
+  .sidebar-footer { display: none; }
+  .sidebar-logo { justify-content: center; padding: 16px 0; }
+  .nav-item { justify-content: center; padding: 10px; }
+  .main-content { margin-left: 64px; padding: 18px 14px; }
+}
+
+@media (max-width: 600px) {
+  .app-layout { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .main-content { margin-left: 0; padding: 14px; }
+}
+
+/* ── Animation Keyframes ─────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
